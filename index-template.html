@@ -2,17 +2,20 @@
 <html>
 
 <head>
-    <title>Title</title>
+    <title>Team Profile Generator</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="./src/css/uikit.min.css" />
     <script src="./src/js/uikit.min.js"></script>
     <script src="./src/js/uikit-icons.min.js"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="./src/js/zoom-circle.js"></script>
+
 </head>
 
 <body>
-
-    <div class="uk-section uk-section-large uk-dark">
+    <!-- HEADER -->
+    <div class="uk-section uk-dark">
         <div class="uk-container">
 
             <h3>My Teams</h3>
@@ -34,49 +37,157 @@
 
         </div>
     </div>
-    <div class="uk-section uk-section-secondary">
+
+    <!-- EMPLOYEES -->
+
+    <div class="uk-section uk-section-muted uk-section-large">
         <div class="uk-container">
 
             <h3>Employees</h3>
 
             <div class="uk-grid-match uk-child-width-expand@m" uk-grid>
+                <!-- MANAGER -->
                 <div>
-                    <div class="uk-card uk-card-default">
+                    <div class="uk-card uk-card-small uk-card-default">
+
                         <div class="uk-card-header">
-                            <div class="uk-grid-small uk-flex-middle" uk-grid>
-                                <div class="uk-width-auto">
-                                    <img class="uk-border-circle" width="60" height="60"
-                                        src="https://picsum.photos/200">
-                                </div>
-                                <div class="uk-width-expand">
-                                    <h3 class="uk-card-title uk-margin-remove-bottom">Title</h3>
-                                    <p class="uk-text-meta uk-margin-remove-top"><time datetime="2016-04-01T19:00">April
-                                            01, 2016</time></p>
-                                </div>
-                            </div>
+                            <span>ID: 0001</span>
+                            <div class="uk-card-badge uk-label-danger">Manager</div>
+
                         </div>
                         <div class="uk-card-body">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                incididunt.</p>
+                            <div class="uk-grid-small uk-flex-middle" uk-grid>
+
+                                <div class="uk-width-expand">
+
+                                    <h3 class="uk-margin-remove-bottom uk-text-danger">Adam Armstrong
+                                    </h3>
+                                    <!-- <p class=" uk-margin-remove-top"><time datetime="2016-04-01T19:00">Manager</time>
+                                    </p> -->
+                                </div>
+                                <div class="uk-width-auto">
+                                    <img class="uk-border-circle" width="60" height="60"
+                                        src="https://picsum.photos/id/237/200/200">
+                                </div>
+                            </div>
+                            <ul class="uk-list uk-list-divider uk-text-emphasis">
+                                <li><strong>Email</strong> <br>adam@fizzbuzz.org</li>
+                                <li><strong>Github</strong> <br>@aadam</li>
+                                <li><strong>Office Number</strong> <br>002</li>
+
+                            </ul>
                         </div>
                         <div class="uk-card-footer">
-                            <a href="#" class="uk-button uk-button-text">Read more</a>
+                            <a href="#" class="uk-button uk-button-text uk-align-right uk-text-danger">Contact</a>
                         </div>
                     </div>
                 </div>
+                <!-- ENGINEER -->
                 <div>
-                    <div class="uk-card uk-card-default uk-card-body">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                    <div class="uk-card uk-card-small uk-card-default">
+
+                        <div class="uk-card-header">
+                            <span>ID: 0002</span>
+                            <div class="uk-card-badge uk-label">Engineer</div>
+
+                        </div>
+                        <div class="uk-card-body">
+                            <div class="uk-grid-small uk-flex-middle" uk-grid>
+
+                                <div class="uk-width-expand">
+
+                                    <h3 class="uk-margin-remove-bottom uk-text-primary">Tony Applemaple
+                                    </h3>
+                                    <!-- <p class=" uk-margin-remove-top"><time datetime="2016-04-01T19:00">Manager</time>
+                                    </p> -->
+                                </div>
+                                <div class="uk-width-auto">
+                                    <img class="uk-border-circle" width="60" height="60"
+                                        src="https://picsum.photos/id/237/200/200">
+                                </div>
+                            </div>
+                            <ul class="uk-list uk-list-divider uk-text-emphasis">
+                                <li><strong>Email</strong> <br>tony@fizzbuzz.org</li>
+                                <li><strong>Github</strong> <br>@atony</li>
+                                <li><strong>Office Number</strong> <br>002</li>
+
+                            </ul>
+                        </div>
+                        <div class="uk-card-footer">
+                            <a href="#" class="uk-button uk-button-text uk-align-right uk-text-primary">Contact</a>
+                        </div>
                     </div>
                 </div>
+                <!-- ENGINEER -->
                 <div>
-                    <div class="uk-card uk-card-default uk-card-body">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                    <div class="uk-card uk-card-small uk-card-default">
+
+                        <div class="uk-card-header">
+                            <span>ID: 0003</span>
+                            <div class="uk-card-badge uk-label">Engineer</div>
+
+                        </div>
+                        <div class="uk-card-body">
+                            <div class="uk-grid-small uk-flex-middle" uk-grid>
+
+                                <div class="uk-width-expand">
+
+                                    <h3 class="uk-margin-remove-bottom uk-text-primary">Melissa <br>Chan
+                                    </h3>
+                                    <!-- <p class=" uk-margin-remove-top"><time datetime="2016-04-01T19:00">Manager</time>
+                                    </p> -->
+                                </div>
+                                <div class="uk-width-auto">
+                                    <img class="uk-border-circle" width="60" height="60"
+                                        src="https://picsum.photos/id/237/200/200">
+                                </div>
+                            </div>
+                            <ul class="uk-list uk-list-divider uk-text-emphasis">
+                                <li><strong>Email</strong> <br>melissa@fizzbuzz.org</li>
+                                <li><strong>Github</strong> <br>@cmelissa</li>
+                                <li><strong>Office Number</strong> <br>003</li>
+
+                            </ul>
+                        </div>
+                        <div class="uk-card-footer">
+                            <a href="#" class="uk-button uk-button-text uk-align-right uk-text-primary">Contact</a>
+                        </div>
                     </div>
                 </div>
+                <!-- INTERN -->
                 <div>
-                    <div class="uk-card uk-card-default uk-card-body">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                    <div class="uk-card uk-card-small uk-card-default">
+
+                        <div class="uk-card-header">
+                            <span>ID: 0004</span>
+                            <div class="uk-card-badge uk-label-warning">Intern</div>
+
+                        </div>
+                        <div class="uk-card-body">
+                            <div class="uk-grid-small uk-flex-middle" uk-grid>
+
+                                <div class="uk-width-expand">
+
+                                    <h3 class="uk-margin-remove-bottom uk-text-warning">Clarisse Herring
+                                    </h3>
+                                    <!-- <p class=" uk-margin-remove-top"><time datetime="2016-04-01T19:00">Manager</time>
+                                    </p> -->
+                                </div>
+                                <div class="uk-width-auto">
+                                    <img class="uk-border-circle" width="60" height="60"
+                                        src="https://picsum.photos/id/237/200/200">
+                                </div>
+                            </div>
+                            <ul class="uk-list uk-list-divider uk-text-emphasis">
+                                <li><strong>Email</strong> <br>clarisse@fizzbuzz.org</li>
+                                <li><strong>Github</strong> <br>@herclarisse</li>
+                                <li><strong>Office Number</strong> <br>004</li>
+
+                            </ul>
+                        </div>
+                        <div class="uk-card-footer">
+                            <a href="#" class="uk-button uk-button-text uk-align-right uk-text-warning">Contact</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -116,6 +227,7 @@
 
         </div>
     </div>
+
 </body>
 
 </html>
