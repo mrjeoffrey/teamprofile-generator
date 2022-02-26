@@ -1,6 +1,9 @@
-// required packages
+// required packages #################################
+const inquirer = require("inquirer");
+const fs = require("fs");
+const path = require("path");
 
-// inquirer prompts
+// inquirer prompts #################################
 
 // GIVEN a command-line application that accepts user input
 // WHEN I am prompted for my team members and their information
@@ -17,7 +20,7 @@
 // WHEN I select the intern option
 // THEN I am prompted to enter the intern’s name, ID, email, and school, and I am taken back to the menu
 
-// build index.html file
+// build index.html file #################################
 
 // THEN an HTML file is generated that displays a nicely formatted team roster based on user input
 
@@ -30,4 +33,4 @@
 // WHEN I click on the GitHub username
 // THEN that GitHub profile opens in a new tab
 
-// initialize function
+// initialize function #################################
