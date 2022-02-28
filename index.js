@@ -3,7 +3,7 @@ const inquirer = require("inquirer");
 const fs = require("fs");
 const path = require("path");
 
-// inquirer prompts #################################
+// inquirer prompts ################
 
 // GIVEN a command-line application that accepts user input
 // WHEN I am prompted for my team members and their information
