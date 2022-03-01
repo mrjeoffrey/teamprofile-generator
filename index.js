@@ -159,6 +159,138 @@ function makeTeam() {
 
 // THEN an HTML file is generated that displays a nicely formatted team roster based on user input
 
+function makeCard(employee) {
+	const name = employee.getName();
+	const id = employee.getId();
+	const role = employee.getRole();
+	const email = employee.getEmail();
+	let lastItem = "";
+	let lastLabel = "";
+	if (role === "Intern") {
+		lastLabel = "School";
+		lastItem = employee.getSchool();
+	} else if (role === "Engineer") {
+		lastLabel = "GitHub";
+		lastItem = employee.getGithub();
+	} else {
+		lastLabel = "Office Number";
+		lastItem = employee.getOfficeNumber();
+	}
+
+	return cardProps({
+		name: name,
+		role: role,
+		id: id,
+		email: email,
+		lastItem: lastItem,
+		lastLabel: lastLabel,
+	});
+}
+
+// HEADER HTML
+let header = [
+	`<!DOCTYPE html>
+    <html>
+    
+    <head>
+        <title>Team Profile Generator</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="./src/css/uikit.min.css" />
+        <script src="./src/js/uikit.min.js"></script>
+        <script src="./src/js/uikit-icons.min.js"></script>
+    
+    </head>
+    
+    <body>
+        <!-- HEADER -->
+        <div class="uk-section uk-dark">
+            <div class="uk-container">
+    
+                <h3>My Teams</h3>
+    
+                <div class="uk-grid-match uk-child-width-1-2@m" uk-grid>
+                    <div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+    
+                        <div class="uk-margin">
+                            <form class="uk-search uk-search-default">
+                                <span uk-search-icon></span>
+                                <input class="uk-search-input" type="search" placeholder="Search">
+                            </form>
+                        </div>
+                    </div>
+    
+    
+                </div>
+    
+            </div>
+        </div>
+    
+        <!-- EMPLOYEES -->
+    
+        <div class="uk-section uk-section-muted uk-section-large">
+            <div class="uk-container">
+    
+                <h3>Employees</h3>
+    
+                <div class="uk-grid-match uk-child-width-expand@m" uk-grid>`,
+];
+
+// CARD
+function cardProps(properties) {
+	const { name, role, id, email, lastItem, lastLabel } = properties;
+	return `
+    <div>
+    <div class="uk-card uk-card-small uk-card-default">
+
+        <div class="uk-card-header">
+            <span>ID: ${id}</span>
+            <div class="uk-card-badge uk-label-danger">${role}</div>
+
+        </div>
+        <div class="uk-card-body">
+            <div class="uk-grid-small uk-flex-middle" uk-grid>
+
+                <div class="uk-width-expand">
+
+                    <h3 class="uk-margin-remove-bottom uk-text-danger">${name}
+                    </h3>
+                 
+                </div>
+                <div class="uk-width-auto">
+                    <img class="uk-border-circle" width="60" height="60"
+                        src="https://picsum.photos/id/237/200/200">
+                </div>
+            </div>
+            <ul class="uk-list uk-list-divider uk-text-emphasis">
+                <li><strong>Email</strong> <br>${email}</li>
+                <li><strong>${lastLabel}</strong> <br>${lastItem}</li>
+
+            </ul>
+        </div>
+        <div class="uk-card-footer">
+            <a href="mailto://${email}" class="uk-button uk-button-text uk-align-right uk-text-danger">Contact</a>
+        </div>
+    </div>
+</div>
+`;
+}
+
+let closeHeader = [
+	`
+                
+    </div>
+    </div>
+</div>
+
+
+
+</body>
+
+</html>`,
+];
+
 // WHEN I decide to finish building my team
 // THEN I exit the application, and the HTML is generated
 
