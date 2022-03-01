@@ -1,3 +1,5 @@
+"use strict";
+
 // required packages #################################
 const inquirer = require("inquirer");
 const fs = require("fs");
@@ -182,6 +184,20 @@ function init() {
 
 	team.push(manager);
 
+	makeTeam();
+}
+
+function addEngineer() {
+	const answers = inquirer.prompt(prompts.engineer);
+
+	const engineer = new Engineer(
+		answers.engineerName,
+		answers.engineerId,
+		answers.engineerEmail,
+		answers.engineerGithub
+	);
+
+	team.push(engineer);
 	makeTeam();
 }
 
