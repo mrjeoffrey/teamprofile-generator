@@ -1,12 +1,10 @@
 "use strict";
-
 // required packages #################################
 const inquirer = require("inquirer");
 const fs = require("fs");
 const path = require("path");
 
 // constructors
-
 class Employee {
 	constructor(name, id, email) {
 		this.name = name;
@@ -240,7 +238,7 @@ async function makeTeam() {
 
 // THEN an HTML file is generated that displays a nicely formatted team roster based on user input
 
-async function makeCard(employee) {
+function makeCard(employee) {
 	const name = employee.getName();
 	const id = employee.getId();
 	const role = employee.getRole();
