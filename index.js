@@ -245,15 +245,24 @@ function makeCard(employee) {
 	const email = employee.getEmail();
 	let lastItem = "";
 	let lastLabel = "";
+	let color1 = "";
+	let color2 = "";
+
 	if (role === "Intern") {
 		lastLabel = "School";
 		lastItem = employee.getSchool();
+		color1 = `uk-label-warning`;
+		color2 = `uk-text-warning`;
 	} else if (role === "Engineer") {
 		lastLabel = "GitHub";
-		lastItem = employee.getGithub();
+		lastItem = `<a class="uk-text-primary" href="https://github.com/${employee.getGithub()}">@${employee.getGithub()}</a>`;
+		color1 = `uk-label`;
+		color2 = `uk-text-primary`;
 	} else {
 		lastLabel = "Office Number";
 		lastItem = employee.getOfficeNumber();
+		color1 = `uk-label-danger`;
+		color2 = `uk-text-danger`;
 	}
 
 	return cardProps({
@@ -263,6 +272,8 @@ function makeCard(employee) {
 		email: email,
 		lastItem: lastItem,
 		lastLabel: lastLabel,
+		color1: color1,
+		color2: color2,
 	});
 }
 
@@ -290,7 +301,7 @@ let header = [
     
                 <div class="uk-grid-match uk-child-width-1-2@m" uk-grid>
                     <div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+                        <p>This is a list of my teammates. Use the searchbar to search for them.</p>
     
                         <div class="uk-margin">
                             <form class="uk-search uk-search-default">
@@ -318,14 +329,15 @@ let header = [
 
 // CARD
 function cardProps(properties) {
-	const { name, role, id, email, lastItem, lastLabel } = properties;
+	const { name, role, id, email, lastItem, lastLabel, color1, color2 } =
+		properties;
 	return `
     <div>
     <div class="uk-card uk-card-small uk-card-default">
 
         <div class="uk-card-header">
             <span>ID: ${id}</span>
-            <div class="uk-card-badge uk-label-danger">${role}</div>
+            <div class="uk-card-badge ${color1}">${role}</div>
 
         </div>
         <div class="uk-card-body">
@@ -333,7 +345,7 @@ function cardProps(properties) {
 
                 <div class="uk-width-expand">
 
-                    <h3 class="uk-margin-remove-bottom uk-text-danger">${name}
+                    <h3 class="uk-margin-remove-bottom ${color2}">${name}
                     </h3>
                  
                 </div>
@@ -343,13 +355,13 @@ function cardProps(properties) {
                 </div>
             </div>
             <ul class="uk-list uk-list-divider uk-text-emphasis">
-                <li><strong>Email</strong> <br>${email}</li>
+                <li><strong>Email</strong> <br><a class="${color2}href="mailto:${email}?subject="Inquiry">${email}</a></li>
                 <li><strong>${lastLabel}</strong> <br>${lastItem}</li>
 
             </ul>
         </div>
         <div class="uk-card-footer">
-            <a href="mailto://${email}" class="uk-button uk-button-text uk-align-right uk-text-danger">Contact</a>
+            <a href="mailto:${email}?subject=Inquiry" class="uk-button uk-button-text uk-align-right ${color2}">Contact</a>
         </div>
     </div>
 </div>
