@@ -294,6 +294,22 @@ let closeHeader = [
 // WHEN I decide to finish building my team
 // THEN I exit the application, and the HTML is generated
 
+function finishedTeam() {
+	const htmlBody = team.map((employee) => makeCard(employee));
+
+	const builtHtml = [header, ...htmlBody, closeHeader].join("");
+
+	// console.log ("please?" + builtHtml)
+
+	fs.writeFile(builtHtml, (err) => {
+		if (err) {
+			console.error(err);
+		} else {
+			console.log("Finished building team!");
+		}
+	});
+}
+
 // WHEN I click on an email address in the HTML
 // THEN my default email program opens and populates the TO field of the email with the address
 
@@ -301,3 +317,4 @@ let closeHeader = [
 // THEN that GitHub profile opens in a new tab
 
 // initialize function #################################
+init();
