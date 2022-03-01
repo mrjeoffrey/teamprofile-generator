@@ -106,7 +106,7 @@ const output = path.resolve(__dirname, `index.html`);
 
 function init() {
 	console.log("Build your team!");
-	const answers = await inquirer.prompt(prompts.manager);
+	const answers = inquirer.prompt(prompts.manager);
 
 	const manager = new Manager(
 		answers.managerName,
@@ -121,7 +121,7 @@ function init() {
 }
 
 function addIntern() {
-	const answers = await inquirer.prompt(prompts.intern);
+	const answers = inquirer.prompt(prompts.intern);
 
 	const intern = new Intern(
 		answers.internName,
@@ -139,13 +139,13 @@ function makeTeam() {
 		for (let i = 0; i < team.length; i++) {
 			console.log(team[i].name + " is in your team");
 		}
-		const userChoice = await inquirer.prompt(prompts.newMember);
+		const userChoice = inquirer.prompt(prompts.newMember);
 		switch (userChoice.newMember) {
 			case `Add Engineer`:
-				await addEngineer();
+				addEngineer();
 				break;
 			case `Add Intern`:
-				await addIntern();
+				addIntern();
 				break;
 			case `Finish building team`:
 				finishedTeam();
