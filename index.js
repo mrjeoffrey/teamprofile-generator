@@ -171,9 +171,9 @@ const team = [];
 
 const output = path.resolve(__dirname, `index.html`);
 
-function init() {
+async function init() {
 	console.log("Build your team!");
-	const answers = inquirer.prompt(prompts.manager);
+	const answers = await inquirer.prompt(prompts.manager);
 
 	const manager = new Manager(
 		answers.managerName,
@@ -187,8 +187,8 @@ function init() {
 	makeTeam();
 }
 
-function addEngineer() {
-	const answers = inquirer.prompt(prompts.engineer);
+async function addEngineer() {
+	const answers = await inquirer.prompt(prompts.engineer);
 
 	const engineer = new Engineer(
 		answers.engineerName,
@@ -201,8 +201,8 @@ function addEngineer() {
 	makeTeam();
 }
 
-function addIntern() {
-	const answers = inquirer.prompt(prompts.intern);
+async function addIntern() {
+	const answers = await inquirer.prompt(prompts.intern);
 
 	const intern = new Intern(
 		answers.internName,
@@ -215,12 +215,12 @@ function addIntern() {
 	makeTeam();
 }
 
-function makeTeam() {
+async function makeTeam() {
 	try {
 		for (let i = 0; i < team.length; i++) {
 			console.log(team[i].name + " is in your team");
 		}
-		const userChoice = inquirer.prompt(prompts.newMember);
+		const userChoice = await inquirer.prompt(prompts.newMember);
 		switch (userChoice.newMember) {
 			case `Add Engineer`:
 				addEngineer();
@@ -240,7 +240,7 @@ function makeTeam() {
 
 // THEN an HTML file is generated that displays a nicely formatted team roster based on user input
 
-function makeCard(employee) {
+async function makeCard(employee) {
 	const name = employee.getName();
 	const id = employee.getId();
 	const role = employee.getRole();
@@ -382,7 +382,7 @@ function finishedTeam() {
 
 	// console.log ("please?" + builtHtml)
 
-	fs.writeFile(builtHtml, (err) => {
+	fs.writeFile(output, builtHtml, (err) => {
 		if (err) {
 			console.error(err);
 		} else {
