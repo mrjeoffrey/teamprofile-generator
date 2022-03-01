@@ -100,6 +100,61 @@ const prompts = {
 // GIVEN a command-line application that accepts user input
 // WHEN I am prompted for my team members and their information
 
+const team = [];
+
+const output = path.resolve(__dirname, `index.html`);
+
+function init() {
+	console.log("Build your team!");
+	const answers = await inquirer.prompt(prompts.manager);
+
+	const manager = new Manager(
+		answers.managerName,
+		answers.managerId,
+		answers.managerEmail,
+		answers.managerOfficeNumber
+	);
+
+	team.push(manager);
+
+	makeTeam();
+}
+
+function addIntern() {
+	const answers = await inquirer.prompt(prompts.intern);
+
+	const intern = new Intern(
+		answers.internName,
+		answers.internId,
+		answers.internEmail,
+		answers.internSchool
+	);
+
+	team.push(intern);
+	makeTeam();
+}
+
+function makeTeam() {
+	try {
+		for (let i = 0; i < team.length; i++) {
+			console.log(team[i].name + " is in your team");
+		}
+		const userChoice = await inquirer.prompt(prompts.newMember);
+		switch (userChoice.newMember) {
+			case `Add Engineer`:
+				await addEngineer();
+				break;
+			case `Add Intern`:
+				await addIntern();
+				break;
+			case `Finish building team`:
+				finishedTeam();
+		}
+	} catch (err) {
+		console.error(err);
+	}
+}
+
 // build index.html file #################################
 
 // THEN an HTML file is generated that displays a nicely formatted team roster based on user input
