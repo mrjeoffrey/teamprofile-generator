@@ -1,5 +1,5 @@
 "use strict";
-const Employee = require("../index.js");
+const Employee = require("../lib/Employee.js");
 
 // The first class is an Employee parent class with the following properties and methods:
 
