@@ -3,7 +3,7 @@ const Employee = require("../lib/Employee.js");
 
 // The first class is an Employee parent class with the following properties and methods:
 
-describe("Employee", () => {
+describe("Employee Constructor", () => {
 	describe("Initialization", () => {
 		it("can instantiate Employee instance", () => {
 			const employee = new Employee();
@@ -30,7 +30,8 @@ describe("Employee", () => {
 			const employee = new Employee("Foo", 1, testValue);
 			expect(employee.email).toBe(testValue);
 		});
-
+	});
+	describe("Get() Functions Tests", () => {
 		// getName()
 		it("can get name via getName()", () => {
 			const testValue = "Alice";
