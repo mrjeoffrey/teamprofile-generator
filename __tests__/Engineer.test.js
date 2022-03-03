@@ -17,7 +17,6 @@ const Engineer = require("../lib/Engineer");
 describe("Engineer Constructor", () => {
 	describe("Get() Functions Tests", () => {
 		// github—GitHub username
-
 		it("can set GitHUb account via constructor", () => {
 			const testValue = "GitHubUser";
 			const engineer = new Engineer("Foo", 1, "test@test.com", testValue);
@@ -25,7 +24,6 @@ describe("Engineer Constructor", () => {
 		});
 
 		// getGithub()
-
 		it("can get GitHub username via getGithub()", () => {
 			const testValue = "GitHubUser";
 			const engineer = new Engineer("Foo", 1, "test@test.com", testValue);
@@ -33,7 +31,6 @@ describe("Engineer Constructor", () => {
 		});
 
 		// getRole()—overridden to return 'Engineer'
-
 		it('getRole() should return "Engineer"', () => {
 			const testValue = "Engineer";
 			const engineer = new Engineer("Foo", 1, "test@test.com", "GitHubUser");
