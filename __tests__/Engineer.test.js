@@ -7,14 +7,15 @@
 // getName()
 // getId()
 // getEmail()
+// getRole()—returns 'Employee'
 
 // all Employee requirements met inside Engineer.js. Engineer.js imports Employee.js
 const Engineer = require("../lib/Engineer");
 
+// In addition to Employee's properties and methods, Engineer will also have the following:
+
 describe("Engineer Constructor", () => {
 	describe("Get() Functions Tests", () => {
-		// getRole()—returns 'Employee'
-		// In addition to Employee's properties and methods, Engineer will also have the following:
 		// github—GitHub username
 
 		it("can set GitHUb account via constructor", () => {
