@@ -4,7 +4,7 @@
 	
 <br>
 
-Keep track of your teams using a Node.js command-line application that takes in information about employees on a software engineering team. This application collects inputs and then generates an HTML webpage that displays summaries for each person. In addition this application tests the roles to making code maintainable. Please scroll down to see how to runa unit test for every part of the code and ensure that it passes each test as you make changes to the code.
+Keep track of your teams using a Node.js command-line application that takes in information about employees on a software engineering team. This application collects inputs and then generates an HTML webpage that displays summaries for each person. In addition this application tests the roles to making code maintainable. Scroll down to see how to runa unit test for every part of the code and ensure that it passes each test as you make changes to the code.
 <br>
 
 ## Table of Contents
@@ -47,7 +47,7 @@ This is a demo of the Team Profile Generator
 
 | DEMO | 
 | ------- | 
-| [![README.md Generator](https://img.youtube.com/vi/NjF9sTgAeyU/0.jpg)](https://www.youtube.com/watch?v=NjF9sTgAeyU) |
+| [![TeamProfile Generator](https://img.youtube.com/vi/lptD3CFU82Q/0.jpg)](https://www.youtube.com/watch?v=lptD3CFU82Q) |
 
 ## <span id="credits">Credits</span>
 N/A
